@@ -26,6 +26,9 @@ CREATE TABLE `app` (
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
   `create_by` varchar(11) DEFAULT NULL,
   `del` int(1) DEFAULT '0',
+  `banner` varchar(4000),
+  `swwx` varchar(4000),
+  `gzh` varchar(4000),
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='应用表';
 
@@ -33,7 +36,7 @@ CREATE TABLE `app` (
 -- Records of app
 -- ----------------------------
 BEGIN;
-INSERT INTO `app` VALUES (1, 'CMS建站管理后台', 'http://localhost:8081', '[{\"url\":\"/upload/1/appLogo/1609397756549.png\",\"name\":\"1593834123492.png\",\"path\":\"/upload/1/appLogo/1609397756549.png\",\"uid\":1609397756411,\"status\":\"success\"}]', 'CMS', '版权所有 ©北京奕凡星辰科技有限公司2020-2021 保留一切权利。', 'default', 'CMS', '', 0, NULL, '2019-11-17 04:00:00', 'web', '2021-05-28 14:25:46', '57', NULL, '', NULL);
+INSERT INTO `app` VALUES (1, 'CMS建站管理后台', 'http://localhost:8081', '[{\"url\":\"/upload/1/appLogo/1609397756549.png\",\"name\":\"1593834123492.png\",\"path\":\"/upload/1/appLogo/1609397756549.png\",\"uid\":1609397756411,\"status\":\"success\"}]', 'CMS', '版权所有 ©北京奕凡星辰科技有限公司2020-2021 保留一切权利。', 'default', 'CMS', '', 0, NULL, '2019-11-17 04:00:00', 'web', '2021-05-28 14:25:46', '57', NULL, '', NULL,NULL,NULL,NULL);
 COMMIT;
 
 -- ----------------------------
@@ -446,6 +449,7 @@ CREATE TABLE `model` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `model` VALUES (84, NULL, 0, NULL, '12000000', '系统设置', '', 'icon-xitongguanli', 3, 1, NULL, '2014-12-19 22:30:24', NULL, NULL, NULL, NULL, 0);
+INSERT INTO `model` VALUES (86, 84, 0, '84', '12010000', '应用设置', '/cms/app/-1/edit.do', '', 2, 1, NULL, '2014-12-19 22:31:59', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (182, 86, 0, '84,86', '12010004', '修改', 'app:update', '', 0, 0, NULL, '2017-09-05 16:14:42', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (183, 23, 0, '23', '01030000', '菜单管理', 'model/index.do', '', 0, 1, NULL, '2017-09-05 13:09:26', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (184, 183, 0, '23,183', '01030001', '查看', 'model:view', '', 0, 0, NULL, '2017-09-05 13:10:43', NULL, NULL, NULL, NULL, 0);
@@ -481,7 +485,6 @@ INSERT INTO `model` VALUES (719, 707, 0, '706,707', '02980004', '修改', 'cms:c
 INSERT INTO `model` VALUES (720, 707, 0, '706,707', '02980001', '查看', 'cms:content:view', '', 0, 0, NULL, '2019-11-23 20:23:15', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (721, 707, 0, '706,707', '721', '删除', 'cms:content:del', '', 0, 0, NULL, '2019-11-23 21:02:28', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (1653, 708, 0, '706,708', '1320', '删除', 'cms:category:del', '', 0, 0, NULL, '2020-09-22 07:41:21', NULL, NULL, NULL, NULL, 0);
-INSERT INTO `model` VALUES (1700, NULL, 0, NULL, '16197622071887865', '自定义模块', NULL, 'icon-zhanqun', 0, 1, NULL, '2021-05-25 22:07:10', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (1701, 1700, 0, '1700', '16197622071885990', '自定义页面', 'mdiy/page/index.do', '', 0, 1, NULL, '2021-05-25 22:07:10', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (1702, 1701, 0, '1700,1701', '16197622071882306', '新增', 'mdiy:page:save', NULL, 0, 0, NULL, '2021-05-25 22:07:10', NULL, NULL, NULL, NULL, 0);
 INSERT INTO `model` VALUES (1703, 1701, 0, '1700,1701', '16197622071889774', '删除', 'mdiy:page:del', NULL, 0, 0, NULL, '2021-05-25 22:07:10', NULL, NULL, NULL, NULL, 0);
