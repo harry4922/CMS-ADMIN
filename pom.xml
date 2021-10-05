@@ -60,12 +60,6 @@
             <classifier>sources</classifier>
             <scope>provided</scope>
         </dependency>
-        <!--store入口依赖（源码不开发），如果不需要MStore可以直接去掉依赖-->
-<!--        <dependency>-->
-<!--            <groupId>net.mingsoft</groupId>-->
-<!--            <artifactId>store-client</artifactId>-->
-<!--            <version>2.1.7.1</version>-->
-<!--        </dependency>-->
 
     </dependencies>
 
@@ -76,10 +70,10 @@
                 <directory>src/main/webapp</directory>
                 <excludes>
                     <!-- 打包生产并手动将static、html、upload、template复制到生产 -->
-                    <exclude>static/</exclude>
-                    <exclude>html/</exclude>
-                    <exclude>upload/</exclude>
-                    <exclude>template/</exclude>
+                    <!-- <exclude>static/</exclude> -->
+                    <!-- <exclude>html/</exclude> -->
+                    <!-- <exclude>upload/</exclude> -->
+                    <!-- <exclude>template/</exclude> -->
                     <!-- 如果生产需要实时修改WEB-INF/下的页面可，启用这行并手动将项目中的WEB-INF目录复制到运行环境 -->
                     <!-- <exclude>WEB-INF/</exclude>-->
                 </excludes>
