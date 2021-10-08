@@ -25,9 +25,6 @@
                                       :clearable="true"
                                       placeholder="请输入栏目名称">
                             </el-input>
-                            <div class="ms-form-tip">
-                                标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/lan-mu-lie-biao-ms-channel.html" target="_blank">${'$'}{field.typetitle}</a>
-                            </div>
                         </el-form-item>
                     </el-col>
                     <el-col span="12">
@@ -126,9 +123,6 @@
                                     :style="{width: '100%'}"
                                     placeholder="请输入自定义链接">
                             </el-input>
-                            <div class="ms-form-tip">
-                                标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/lan-mu-lie-biao-ms-channel.html" target="_blank">${'$'}{field.typeurl}</a>，自定义链接不能包含标签
-                            </div>
                         </el-form-item>
                     </el-col>
                     <el-col span="12">
@@ -187,10 +181,6 @@
                             :style="{width: '100%'}"
                             placeholder="关键字，有助于搜索">
                     </el-input>
-                    <div class="ms-form-tip">
-                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/lan-mu-lie-biao-ms-channel.html" target="_blank">${'$'}{field.typekeyword}</a>，
-                        用于SEO优化
-                    </div>
                 </el-form-item>
                 <el-form-item label="描述" prop="categoryDescrip">
                     <el-input
@@ -200,10 +190,6 @@
                             :style="{width: '100%'}"
                             placeholder="栏目描述，有助于搜索">
                     </el-input>
-                    <div class="ms-form-tip">
-                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/lan-mu-lie-biao-ms-channel.html" target="_blank">${'$'}{field.typedescrip}</a>
-                        用于SEO优化
-                    </div>
                 </el-form-item>
                 <el-form-item label="缩略图" prop="categoryImg" >
                     <el-upload

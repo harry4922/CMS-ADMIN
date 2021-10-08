@@ -35,9 +35,11 @@ import net.mingsoft.basic.entity.AppEntity;
 import net.mingsoft.basic.util.BasicUtil;
 import net.mingsoft.cms.bean.CategoryBean;
 import net.mingsoft.cms.bean.ContentBean;
+import net.mingsoft.cms.biz.IAppOverrideBiz;
 import net.mingsoft.cms.biz.ICategoryBiz;
 import net.mingsoft.cms.biz.IContentBiz;
 import net.mingsoft.cms.constant.e.CategoryTypeEnum;
+import net.mingsoft.cms.entity.AppEntityOverride;
 import net.mingsoft.cms.entity.CategoryEntity;
 import net.mingsoft.cms.util.CmsParserUtil;
 import net.mingsoft.mdiy.bean.PageBean;
@@ -97,6 +99,9 @@ public class GeneraterAction extends BaseAction {
     @Autowired
     private IModelBiz modelBiz;
 
+    @Autowired
+    private IAppOverrideBiz appBiz;
+
     @Value("${ms.manager.path}")
     private String managerPath;
 
@@ -129,13 +134,14 @@ public class GeneraterAction extends BaseAction {
         String tmpFileName = request.getParameter("url");
         // 生成后的文件名称
         String generateFileName = request.getParameter("position");
+        AppEntityOverride app = appBiz.getAppInfo();
 
         // 获取文件所在路径 首先判断用户输入的模版文件是否存在
         if (!FileUtil.exist(ParserUtil.buildTemplatePath())) {
             return ResultData.build().error(getResString("templet.file"));
         } else {
 
-            CmsParserUtil.generate(tmpFileName, generateFileName,htmlDir);
+            CmsParserUtil.generate(app, tmpFileName, generateFileName,htmlDir);
             return ResultData.build().success();
         }
     }
@@ -273,7 +279,7 @@ public class GeneraterAction extends BaseAction {
      */
     @RequestMapping(value="/{position}/viewIndex",method = {RequestMethod.GET, RequestMethod.POST})
     public String viewIndex(HttpServletRequest request, @PathVariable String position, HttpServletResponse response) {
-        AppEntity app = BasicUtil.getApp();
+        AppEntityOverride app = appBiz.getAppInfo();
         // 组织主页预览地址
         String indexPosition = app.getAppHostUrl() + File.separator + htmlDir+ File.separator + app.getAppDir()
                 + File.separator + position + ParserUtil.HTML_SUFFIX;

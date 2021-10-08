@@ -31,6 +31,7 @@ import net.mingsoft.basic.util.BasicUtil;
 import net.mingsoft.basic.util.SpringUtil;
 import net.mingsoft.cms.bean.CategoryBean;
 import net.mingsoft.cms.constant.e.CategoryTypeEnum;
+import net.mingsoft.cms.entity.AppEntityOverride;
 import net.mingsoft.cms.entity.CategoryEntity;
 import net.mingsoft.mdiy.bean.PageBean;
 import net.mingsoft.mdiy.biz.IModelBiz;
@@ -63,7 +64,7 @@ public class CmsParserUtil {
      * @param targetPath   生成后的路径，默认生成的html文件，所以不能带.html后缀，
      * @throws IOException
      */
-    public static void generate(String templatePath, String targetPath, String htmlDir) throws IOException {
+    public static void generate(AppEntityOverride appInfo, String templatePath, String targetPath, String htmlDir) throws IOException {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put(ParserUtil.IS_DO, false);
         CategoryEntity column = new CategoryEntity();
@@ -72,10 +73,10 @@ public class CmsParserUtil {
         map.put(ParserUtil.HTML, htmlDir);
 
         //站点编号
-        if (BasicUtil.getWebsiteApp() != null) {
-            map.put(ParserUtil.APP_DIR, BasicUtil.getWebsiteApp().getAppDir());
-            map.put(ParserUtil.URL, BasicUtil.getWebsiteApp().getAppHostUrl());
-            map.put(ParserUtil.APP_ID, BasicUtil.getWebsiteApp().getAppId());
+        if (appInfo != null) {
+            map.put(ParserUtil.APP_DIR, appInfo.getAppDir());
+            map.put(ParserUtil.URL, appInfo.getAppHostUrl());
+            map.put(ParserUtil.APP_ID, appInfo.getAppId());
         } else {
             map.put(ParserUtil.URL, BasicUtil.getUrl());
             map.put(ParserUtil.APP_DIR, BasicUtil.getApp().getAppDir());

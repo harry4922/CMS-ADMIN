@@ -29,9 +29,6 @@
                                               :clearable="true"
                                               placeholder="请输入文章标题">
                                     </el-input>
-                                    <div class="ms-form-tip">
-                                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.title}</a>
-                                    </div>
                                 </el-form-item>
                             </el-col>
                             <el-col span="12" v-if="returnIsShow">
@@ -46,10 +43,6 @@
                                                 }}"
                                                 @change="categoryChange"
                                                 :options="contentCategoryIdOptions" placeholder="请选择"></treeselect>
-                                    <div class="ms-form-tip">
-                                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.typetitle}</a>
-                                        不能选择封面、链接栏目类型，不能选择父栏目
-                                    </div>
                                 </el-form-item>
                             </el-col>
                         </el-row>
@@ -68,10 +61,6 @@
                                                    :value="item.dictValue"
                                                    :label="item.dictLabel"></el-option>
                                     </el-select>
-                                    <div class="ms-form-tip">
-                                       标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{flag}</a>
-                                        通过自定义字典可扩展，通常用在 arclist标签的flag属性上进行过滤文章
-                                    </div>
                                 </el-form-item>
                             </el-col>
                             <el-col span="12">
@@ -90,9 +79,6 @@
                                             :style="{width:'100%'}"
                                             type="datetime">
                                     </el-date-picker>
-                                    <div class="ms-form-tip">
-                                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.date?string("yyyy-MM-dd")}</a>
-                                    </div>
                                 </el-form-item>
                             </el-col>
                         </el-row>
@@ -107,9 +93,6 @@
                                               :clearable="true"
                                               placeholder="请输入文章作者">
                                     </el-input>
-                                    <div class="ms-form-tip">
-                                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.author}</a>
-                                    </div>
                                 </el-form-item>
                             </el-col>
                             <el-col span="12">
@@ -120,9 +103,6 @@
                                               :clearable="true"
                                               placeholder="请输入文章来源">
                                     </el-input>
-                                    <div class="ms-form-tip">
-                                        标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.source}</a>
-                                    </div>
                                 </el-form-item>
                             </el-col>
                         </el-row>
@@ -171,7 +151,6 @@
                                     list-type="picture-card">
                                 <i class="el-icon-plus"></i>
                                 <div slot="tip" class="ms-form-tip">
-                                    标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'{@ms:file field.litpic/}'}</a><br/>
                                     最多上传1张图片，文章缩略图,支持jpg格式
                                 </div>
                             </el-upload>
@@ -184,9 +163,6 @@
                                     :style="{width: '100%'}"
                                     placeholder="请输入文章关键字">
                             </el-input>
-                            <div class="ms-form-tip">
-                                标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.keyword}</a>，用于SEO优化
-                            </div>
                         </el-form-item>
                         <el-form-item label="描述" prop="contentDescription">
                             <el-input
@@ -196,16 +172,10 @@
                                     :style="{width: '100%'}"
                                     placeholder="请输入对该文章的简短描述，以便用户查看文章简略">
                             </el-input>
-                            <div class="ms-form-tip">
-                                标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.descrip}</a>，用于SEO优化
-                            </div>
                         </el-form-item>
                         <el-form-item label="文章内容" prop="contentDetails">
                             <vue-ueditor-wrap style="line-height: 0px" v-model="form.contentDetails"
                                               :config="editorConfig"></vue-ueditor-wrap>
-                            <div class="ms-form-tip">
-                                标签：<a href="http://doc.mingsoft.net/mcms/biao-qian/wen-zhang-lie-biao-ms-arclist.html" target="_blank">${'$'}{field.content}</a>
-                            </div>
                         </el-form-item>
                     </el-form>
                     <div :id="'model'+index" v-else></div>

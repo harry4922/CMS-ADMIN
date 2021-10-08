@@ -36,12 +36,14 @@
 			<if test="appPayDate != null">APP_PAY_DATE=#{appPayDate},</if>
 			<if test="appPay != null">APP_PAY=#{appPay},</if>
 			<if test="appDir != null">app_dir=#{appDir},</if>
-			<if test="banner != null">banner=#{banner},</if>
-			<if test="swwx != null">app_dir=#{swwx},</if>
-			<if test="gzh != null">app_dir=#{gzh},</if>
 		</set>
 		where id = #{id}
 	</update>
+
+	<!-- 获取App信息 -->
+	<select id="getAppInfo" resultType="net.mingsoft.cms.entity.AppEntityOverride" >
+		SELECT * FROM app LIMIT 1
+	</select>
 
 
 </mapper>

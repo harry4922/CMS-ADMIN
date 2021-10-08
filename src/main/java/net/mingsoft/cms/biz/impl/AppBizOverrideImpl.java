@@ -2,6 +2,7 @@ package net.mingsoft.cms.biz.impl;
 
 import net.mingsoft.base.biz.impl.BaseBizImpl;
 import net.mingsoft.base.dao.IBaseDao;
+import net.mingsoft.basic.entity.AppEntity;
 import net.mingsoft.cms.biz.IAppOverrideBiz;
 import net.mingsoft.cms.dao.IAppOverrideDao;
 import net.mingsoft.cms.dao.ICategoryDao;
@@ -21,5 +22,10 @@ public class AppBizOverrideImpl extends BaseBizImpl<IAppOverrideDao, AppEntityOv
     @Override
     protected IBaseDao<AppEntityOverride> getDao() {
         return appOverrideDao;
+    }
+
+    @Override
+    public AppEntityOverride getAppInfo(){
+        return appOverrideDao.getAppInfo();
     }
 }
