@@ -27,6 +27,7 @@ import freemarker.core.ParseException;
 import freemarker.template.MalformedTemplateNameException;
 import freemarker.template.TemplateNotFoundException;
 import net.mingsoft.base.constant.Const;
+import net.mingsoft.basic.entity.AppEntity;
 import net.mingsoft.basic.util.BasicUtil;
 import net.mingsoft.basic.util.SpringUtil;
 import net.mingsoft.cms.bean.CategoryBean;
@@ -76,7 +77,7 @@ public class CmsParserUtil {
         if (appInfo != null) {
             map.put(ParserUtil.APP_DIR, appInfo.getAppDir());
             map.put(ParserUtil.URL, appInfo.getAppHostUrl());
-            map.put(ParserUtil.APP_ID, appInfo.getAppId());
+//            map.put(ParserUtil.APP_ID, appInfo.getAppId());
         } else {
             map.put(ParserUtil.URL, BasicUtil.getUrl());
             map.put(ParserUtil.APP_DIR, BasicUtil.getApp().getAppDir());
