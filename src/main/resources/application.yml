@@ -43,7 +43,7 @@ spring:
       stat-view-servlet:
         enabled: false #启用druid监控
   profiles:
-    active: prod
+    active: dev
   cache:
     ehcache:
       config: classpath:ehcache.xml

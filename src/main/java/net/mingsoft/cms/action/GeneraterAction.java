@@ -195,7 +195,7 @@ public class GeneraterAction extends BaseAction {
                         continue;
                     }
 
-                    CmsParserUtil.generateList(column, articleIdList.size(),htmlDir);
+                    CmsParserUtil.generateList(app, column, articleIdList.size(),htmlDir);
                     break;
                 case COVER:// 单页
                     if (articleIdList.size() == 0) {
@@ -205,7 +205,7 @@ public class GeneraterAction extends BaseAction {
                         BeanUtil.copyProperties(column, columnArticleIdBean, copyOptions);
                         articleIdList.add(columnArticleIdBean);
                     }
-                    CmsParserUtil.generateBasic(articleIdList,htmlDir);
+                    CmsParserUtil.generateBasic(app, articleIdList,htmlDir);
                     break;
             }
         }
@@ -231,6 +231,8 @@ public class GeneraterAction extends BaseAction {
         List<CategoryEntity> categoryList = new ArrayList<CategoryEntity>();
         ContentBean contentBean = new ContentBean();
         contentBean.setBeginTime(dateTime);
+
+        AppEntityOverride app = appBiz.getAppInfo();
 
         // 生成所有栏目的文章
         if ("0".equals(columnId)) {
@@ -262,7 +264,7 @@ public class GeneraterAction extends BaseAction {
             }
             // 有符合条件的就更新
             if (articleIdList.size() > 0) {
-                CmsParserUtil.generateBasic(articleIdList,htmlDir);
+                CmsParserUtil.generateBasic(app, articleIdList,htmlDir);
             }
         }
 

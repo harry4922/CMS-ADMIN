@@ -98,7 +98,7 @@ public class CmsParserUtil {
      * @throws ParseException
      * @throws IOException
      */
-    public static void generateList(CategoryEntity column, int articleIdTotal, String htmlDir)
+    public static void generateList(AppEntityOverride app, CategoryEntity column, int articleIdTotal, String htmlDir)
             throws TemplateNotFoundException, MalformedTemplateNameException, ParseException, IOException {
         try {
             // 文章的栏目模型编号
@@ -119,12 +119,12 @@ public class CmsParserUtil {
 
             //站点编号
             if (BasicUtil.getWebsiteApp() != null) {
-                parserParams.put(ParserUtil.APP_DIR, BasicUtil.getWebsiteApp().getAppDir());
-                parserParams.put(ParserUtil.URL, BasicUtil.getWebsiteApp().getAppHostUrl());
-                parserParams.put(ParserUtil.APP_ID, BasicUtil.getWebsiteApp().getAppId());
+                parserParams.put(ParserUtil.APP_DIR, app.getAppDir());
+                parserParams.put(ParserUtil.URL, app.getAppHostUrl());
+                parserParams.put(ParserUtil.APP_ID, app.getAppId());
             } else {
-                parserParams.put(ParserUtil.URL, BasicUtil.getUrl());
-                parserParams.put(ParserUtil.APP_DIR, BasicUtil.getApp().getAppDir());
+                parserParams.put(ParserUtil.URL, app.getAppUrl());
+                parserParams.put(ParserUtil.APP_DIR, app.getAppDir());
             }
 
             parserParams.put(ParserUtil.COLUMN, column);
@@ -190,17 +190,17 @@ public class CmsParserUtil {
      * @throws MalformedTemplateNameException
      * @throws TemplateNotFoundException
      */
-    public static void generateBasic(List<CategoryBean> articleIdList, String htmlDir) {
+    public static void generateBasic(AppEntityOverride app, List<CategoryBean> articleIdList, String htmlDir) {
 
         Map<String, Object> parserParams = new HashMap<String, Object>();
         parserParams.put(ParserUtil.IS_DO, false);
         if (BasicUtil.getWebsiteApp() != null) {
-            parserParams.put(ParserUtil.APP_DIR, BasicUtil.getWebsiteApp().getAppDir());
-            parserParams.put(ParserUtil.URL, BasicUtil.getWebsiteApp().getAppHostUrl());
-            parserParams.put(ParserUtil.APP_ID, BasicUtil.getWebsiteApp().getAppId());
+            parserParams.put(ParserUtil.APP_DIR, app.getAppDir());
+            parserParams.put(ParserUtil.URL, app.getAppHostUrl());
+            parserParams.put(ParserUtil.APP_ID, app.getAppId());
         } else {
-            parserParams.put(ParserUtil.URL, BasicUtil.getUrl());
-            parserParams.put(ParserUtil.APP_DIR, BasicUtil.getApp().getAppDir());
+            parserParams.put(ParserUtil.URL, app.getAppUrl());
+            parserParams.put(ParserUtil.APP_DIR, app.getAppDir());
         }
 
         parserParams.put(ParserUtil.HTML, htmlDir);
