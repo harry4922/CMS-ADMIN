@@ -65,7 +65,16 @@ public class ContentBean extends ContentEntity {
     /**
      * 栏目属性，用于筛选文章列表
      */
-    private String categoryFlag;
+    private String[] categoryFlag;
+
+
+    private String contentTypes;
+
+    /**
+     * 文章类型
+     */
+    private String[] contentTypesArray;
+
 
     public String getCategoryType() {
         return categoryType;
@@ -75,11 +84,11 @@ public class ContentBean extends ContentEntity {
         this.categoryType = categoryType;
     }
 
-    public String getCategoryFlag() {
+    public String[] getCategoryFlag() {
         return categoryFlag;
     }
 
-    public void setCategoryFlag(String categoryFlag) {
+    public void setCategoryFlag(String[] categoryFlag) {
         this.categoryFlag = categoryFlag;
     }
 
@@ -113,5 +122,21 @@ public class ContentBean extends ContentEntity {
 
     public void setNoflag(String noflag) {
         this.noflag = noflag;
+    }
+
+    public String[] getContentTypesArray() {
+        return contentTypesArray;
+    }
+
+    public void setContentTypesArray(String[] contentTypesArray) {
+        this.contentTypesArray = contentTypesArray;
+    }
+
+    public String getContentTypes() {
+        return contentTypes;
+    }
+
+    public void setContentTypes(String contentTypes) {
+        this.contentTypes = contentTypes;
     }
 }

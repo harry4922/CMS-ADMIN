@@ -111,6 +111,10 @@ public class ContentAction extends BaseAction {
 	@ResponseBody
 	public ResultData list(@ModelAttribute @ApiIgnore ContentBean content, HttpServletResponse response, HttpServletRequest request, @ApiIgnore ModelMap model, BindingResult result) {
 		BasicUtil.startPage();
+		String contentTypes = content.getContentTypes();
+		if(contentTypes != null && contentTypes.length() != 0){
+			content.setContentTypesArray(contentTypes.split(","));
+		}
 		List contentList = contentBiz.query(content);
 		return ResultData.build().success(new EUListBean(contentList,(int) BasicUtil.endPage(contentList).getTotal()));
 	}

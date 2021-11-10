@@ -33,8 +33,8 @@
                         </el-form-item>
                     </el-col>
                     <el-col :span="8">
-                        <el-form-item  label="文章类型" prop="categoryFlag">
-                            <el-select v-model="form.categoryFlag"
+                        <el-form-item  label="文章类型" prop="contentTypes">
+                            <el-select v-model="form.contentTypes"
                                        :style="{width: '100%'}"
                                        :filterable="false"
                                        :disabled="false"
@@ -267,7 +267,7 @@
                 // 文章标题
                 contentTitle: null,
                 // 文章类型
-                contentType: null,
+                contentTypes: [],
                 categoryId: ''
             },
             leaf:1
@@ -284,8 +284,8 @@
                 };
                 var form = JSON.parse(JSON.stringify(that.form));
 
-                if (form.contentType!=null && form.contentType.length > 0) {
-                    form.contentType = form.contentType.join(',');
+                if (form.contentTypes!=null && form.contentTypes.length > 0) {
+                    form.contentTypes = form.contentTypes.join(',');
                 }
 
                 for (var key in form) {
