@@ -69,6 +69,7 @@ public class AppActionOverride extends BaseAction {
         }
         //查询Override部分
         AppEntityOverride override = appBizOverride.getById(app.getId());
+        app.setAppUrl(override.getAppUrl());
         AppEntityOverride resData = JSON.parseObject(JSON.toJSONString(app), AppEntityOverride.class);
         if(override != null) {
             resData.setBanner(override.getBanner());
@@ -108,6 +109,7 @@ public class AppActionOverride extends BaseAction {
         }
         //查询Override部分
         AppEntityOverride override = appBizOverride.getById(app.getId());
+        app.setAppUrl(override.getAppUrl());
         AppEntityOverride resData = JSON.parseObject(JSON.toJSONString(app), AppEntityOverride.class);
         if(override != null) {
             resData.setBanner(override.getBanner());
@@ -175,7 +177,7 @@ public class AppActionOverride extends BaseAction {
         if (StringUtils.isNotBlank(app.getGzh())) {
             app.setGzh(app.getGzh().replace("|", ""));
         }
-        app.setAppUrl(BasicUtil.getUrl());
+//        app.setAppUrl(BasicUtil.getUrl());
         appBizOverride.updateById(app);
         appBiz.updateCache();
         return ResultData.build().success();

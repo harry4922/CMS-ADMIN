@@ -160,7 +160,7 @@ public class GeneraterAction extends BaseAction {
     @ResponseBody
     public ResultData genernateColumn(HttpServletRequest request, HttpServletResponse response, @PathVariable String categoryId) throws IOException {
         // 获取站点id
-        AppEntity app = BasicUtil.getApp();
+        AppEntityOverride app = appBiz.getAppInfo();
 
         //栏目列表
         List<CategoryEntity> columns = new ArrayList<CategoryEntity>();
