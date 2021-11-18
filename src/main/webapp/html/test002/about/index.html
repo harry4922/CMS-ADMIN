@@ -1,0 +1,458 @@
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>CMS建站管理后台001</title>
+  <meta http-equiv="content-type" content="text/html">
+  <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="app-mobile-web-app-capable" content="yes">
+  <meta name="app-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="keywords" content="CMS">
+  <meta name="description" content="CMS">
+  <script type="text/javascript" src="http://127.0.0.1:8081/static/plugins/vue/2.6.9/vue.min.js"></script>
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/minireset/0.0.2/minireset.min.css">
+  <link rel="stylesheet" href="https://cdn.mingsoft.net/iconfont/iconfont.css">
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/animate/4.1.0/animate.min.css">
+  <script src="http://127.0.0.1:8081/static/plugins/element-ui/2.12.0/index.js"></script>
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/element-ui/2.12.0/index.css">
+  <link rel="stylesheet" href="http://127.0.0.1:8081/template/1/default/css/app.css">
+  <!--网络请求框架-->
+  <script src="http://127.0.0.1:8081/static/plugins/axios/0.18.0/axios.min.js"></script>
+  <script src="http://127.0.0.1:8081/static/plugins/qs/6.6.0/qs.min.js"></script>
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.js"></script>
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.http.js"></script>
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.util.js"></script>
+  <script>
+        ms.base = "";
+    </script>
+  <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+ </head>
+ <body>
+  <div id="app" v-cloak>
+<div class="ms-nav">
+ <div class="body">
+  <div class="logo">
+   <img title="" alt="" src="http://127.0.0.1:8081//upload/1/appLogo/1632215765115.jpg" class="logo-pic">
+   <img title="" alt="" src="https://www.mingsoft.net//template/1/ms/images/1596437934982.png" class="logo-desc">
+  </div>
+  <div @click="switchShow([&quot;1605172743000_96378&quot;]);" class="nav-h5">
+   <i class="iconfont icon-caidan nav-h5-icon"></i>
+   <div id="key_1605172743000_96378" class="nav-h5-body" style="display: none">
+    <a href="http://127.0.0.1:8081" class="nav-h5-item"> 首页 </a>
+    <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="nav-h5-item ">
+     Test-新闻主栏目
+    </a>
+    <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="nav-h5-item ">
+     Test-文章
+    </a>
+    <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="nav-h5-item  sel">
+     Test-关于
+    </a>
+   </div>
+  </div>
+  <div class="nav-item">
+   <a href="http://127.0.0.1:8081" class="item"> 首页 </a>
+
+   <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="item">
+    Test-新闻主栏目
+   </a>
+   <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="item">
+    Test-文章
+   </a>
+   <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="item sel">
+    Test-关于
+   </a>
+  </div>
+  <div class="nav-search">
+   <!--搜索-start-->
+   <form id="searchDataForm" action="http://127.0.0.1:8081/mcms/search.do" method="post" class="ms-search-input">
+    <div class="ms-search-input-div">
+     <!--输入框 - start -->
+     <input class="ms-input" name="content_title" placeholder="输入搜索关键字">
+     <!--输入框 -end -->
+    </div>
+    <div class="ms-search-button" onclick="document.getElementById('searchDataForm').submit();">
+     <i class="iconfont icon-fangdajing"></i>
+    </div>
+   </form>
+   <!--搜索-end-->
+  </div>
+ </div>
+</div>
+   <div class="news">
+    <div class="body">
+     <div class="left">
+      <span class="title"> Test-关于 </span>
+     </div>
+     <div class="right">
+      <div class="ms-channel-path">
+       <span class="ms-channel-path-label"> 当前位置： </span>
+       <a href="/" class="ms-channel-path-index"> 首页 </a> 
+       <i class="iconfont icon-youjiantou"></i>
+       <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="ms-channel-path-link"> Test-关于 </a> 
+      </div>
+      <span class="big-title"> </span>
+      <div class="news-body">
+       <span> <p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">今年以来，各地大力发展保障性租赁住房，<span style="font-weight: bolder;">近期，广州率先试点按月自动划扣住房公积金还房租服务，未来租房也跟买房类似，可以使用住房公积金账户余额自动还款。</span>而上海则将住房公积金增值收益投资公租房建设。通过这样的支持政策，更好满足年轻人和新市民的住房需求。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><span style="font-weight: bolder;">广东广州：试点住房公积金“按月还房租”</span></p><p><a class="txp_ad_link" style="background-color: transparent; box-sizing: border-box; margin: 0px; padding: 0px; display: block; width: 400px; height: 225px; pointer-events: auto;"></a><a class="txp_ad_more active_show" style="background-color: rgb(254, 92, 56); box-sizing: border-box; margin: 0px; padding: 0px 16px; display: flex; z-index: 100; position: relative; height: 34px; overflow: hidden; border-radius: 16px; line-height: 34px; vertical-align: top; white-space: nowrap; pointer-events: auto; top: auto; right: unset; bottom: unset; left: auto; align-items: center; justify-content: center; width: 178px; text-align: center; opacity: 1; transition: opacity 0.3s ease-in-out;">点击画面，查看详情</a><span style="box-sizing: border-box; margin: 0px; padding: 0px; color: rgb(255, 255, 255);">广告剩余:&nbsp;</span><span style="box-sizing: border-box; margin: 0px; padding: 0px;">17</span><span style="box-sizing: border-box; margin: 0px; padding: 0px; color: rgb(255, 255, 255);">秒</span>02:26</p><h4 class="float-title" style="margin: 0px; padding: 0px 0px 0px 10px; float: left; font-size: 12px; font-weight: 400;"></h4><p><a title="关闭" class="float-close" style="background-color: transparent; float: right; width: 30px; height: 30px; line-height: 30px; text-align: center; right: 5px; top: 5px; cursor: pointer; font-size: 12px;"></a></p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><img class="content-picture" src="/upload/1/cms/content/editor/1637245487219.png"/></p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">徐祉祎租的房子位于广州市区核心地段，最近，这个项目成为广州第一个试点提供按月自动划扣住房公积金还房租服务的项目。租客们签约时，<span style="font-weight: bolder;">只要办理住房公积金按月还房租业务，就可以直接用住房公积金账户的余额缴纳房租。</span></p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><img class="content-picture" src="/upload/1/cms/content/editor/1637245487568.png"/></p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">对于这些缴存了住房公积金的租客，住房租赁企业也给出了专门的优惠：<span style="font-weight: bolder;">不仅免交租房押金，房租也打了折</span>。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><img class="content-picture" src="/upload/1/cms/content/editor/1637245488034.png"/></p><p><br/></p> </span>
+      </div>
+     </div>
+    </div>
+   </div>
+<div class="ms-footer">
+ <div class="body">
+  <div class="top">
+   <div class="top-left">
+         <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="nav-item"> Test-新闻主栏目</a>
+      <div>
+       <a href="http://127.0.0.1:8081/html/test002/news/newsSub/index.html" class="item"> Test-新闻子栏目1 </a>
+      </div>
+    </div>
+    <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="nav-item"> Test-文章</a>
+      <div>
+       <a href="http://127.0.0.1:8081/html/test002/product/productSub/index.html" class="item"> Test-文章子栏目1 </a>
+      </div>
+    </div>
+    <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="nav-item"> Test-关于</a>
+    </div>
+   </div>
+   <div class="top-right">
+<!--    <div class="qr">-->
+<!--     <img title="" alt="" src="http://127.0.0.1:8081/template/1/default/images/sw.png" class="pic">-->
+<!--     <span class="text"> 商务微信 </span>-->
+<!--    </div>-->
+    <div class="qr">
+     <img title="" alt="" src="http://127.0.0.1:8081/template/1/default/images/gzh.png" class="pic">
+     <span class="text"> 公众号 </span>
+    </div>
+   </div>
+  </div>
+  <span class="copyright">版权所有 ©北京奕凡星辰科技有限公司2020-2021 保留一切权利。</span>
+ </div>
+</div>
+  </div>
+  <script>
+var app = new Vue({
+    el: '#app',
+    watch:{
+    },
+    data: {
+    },
+    methods: {
+       switchShow:function(arr){
+       var that = this
+           arr.forEach(function(x){
+              let e = that.$el.querySelector("#key_"+x)
+               if(e){
+                   e.style.display=e.style.display=='none'?'flex':'none'
+               }
+           })
+       },
+    },
+    created(){
+    }
+})
+</script>
+  <style>
+    body {
+        background-color:#fff;
+        box-sizing:border-box;
+        font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Segoe UI", "Helvetica Neue", "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", 微软雅黑, sans-serif;
+        moz-box-sizing:border-box;
+        webkit-box-sizing:border-box;
+    }
+
+    .news
+    {
+            align-items:flex-start;
+            flex-direction:row;
+            display:flex;
+            padding-right:0px;
+            box-sizing:border-box;
+            justify-content:center;
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            width:100%;
+            margin-bottom:0px;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+    }
+    .news .body
+    {
+            padding-bottom:20px;
+            flex-wrap:nowrap;
+            flex-direction:row;
+            display:flex;
+            padding-right:0px;
+            width:1200px;
+            box-sizing:border-box;
+            padding-top:20px;
+            padding-left:0px;
+    }
+    .news .body .left
+    {
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            padding-right:0px;
+            width:200px;
+            box-sizing:border-box;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+    }
+    .news .body .left .title
+    {
+            border-bottom-color:#C0C4CC;
+            color:#C0C4CC;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+            border-bottom-style:dashed;
+            padding-top:10px;
+            border-bottom-width:1px;
+            padding-left:10px;
+            margin-top:0px;
+            height:40px;
+    }
+    .news .body .left .sub-title-sel
+    {
+            background-color:#F2F6FC;
+            color:#409EFF;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+            padding-top:10px;
+            padding-left:10px;
+            margin-top:2px;
+            height:40px;
+    }
+    .news .body .left .sub-title
+    {
+            color:#5F5F5F;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+            padding-top:10px;
+            padding-left:10px;
+            margin-top:0px;
+            height:40px;
+    }
+    .news .body .right
+    {
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            padding-right:0px;
+            width:1000px;
+            margin-bottom:0px;
+            box-sizing:border-box;
+            padding-top:0px;
+            padding-left:20px;
+            margin-top:0px;
+    }
+    .news .body .right .ms-channel-path
+    {
+            margin-right:auto;
+            align-items:center;
+            flex-wrap:nowrap;
+            flex-direction:row;
+            display:flex;
+            width:100%;
+            margin-bottom:10px;
+            box-sizing:border-box;
+            padding-left:0px;
+            margin-top:10px;
+            height:30px;
+            margin-left:auto;
+    }
+    .news .body .right .ms-channel-path span
+    {
+            color:#909399;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+    }
+    .news .body .right .ms-channel-path .ms-channel-path-index
+    {
+            cursor:pointer;
+            color:#000;
+            font-size:16PX;
+            text-decoration:none;
+            margin-bottom:0px;
+            margin-top:0px;
+    }
+    .news .body .right .ms-channel-path >i
+    {
+    }
+    .news .body .right .ms-channel-path .ms-channel-path-link
+    {
+            cursor:pointer;
+            color:#000;
+            font-size:16PX;
+            text-decoration:none;
+            margin-bottom:0px;
+            margin-top:0px;
+    }
+    .news .body .right .big-title
+    {
+            text-align:center;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:22PX;
+            margin-bottom:20px;
+            padding-left:0px;
+            margin-top:10px;
+    }
+    .news .body .right .news-body
+    {
+            flex-direction:column;
+            display:flex;
+            box-sizing:border-box;
+            margin-left:0px;
+            margin-right:0px;
+            min-height:500px;
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            width:100%;
+            margin-bottom:0px;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+    }
+    .news .body .right .news-body span
+    {
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:14px;
+    }
+@media (max-width: 768px){
+        .news
+        {
+                align-items:center;
+                flex-direction:row;
+                display:flex;
+                padding-right:0px;
+                box-sizing:border-box;
+                justify-content:center;
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                width:100%;
+                margin-bottom:0px;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:0px;
+        }
+        .news .body
+        {
+                padding-bottom:20px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:90%;
+                box-sizing:border-box;
+                padding-top:20px;
+                padding-left:0px;
+        }
+
+ .news .body .left {
+  width: 100%;
+ }
+        .news .body .right
+        {
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:100%;
+                margin-bottom:0px;
+                box-sizing:border-box;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:0px;
+        }
+        .news .body .right .ms-channel-path
+        {
+                align-items:center;
+                flex-direction:row;
+                display:flex;
+                box-sizing:border-box;
+                margin-left:auto;
+                margin-right:auto;
+                flex-wrap:nowrap;
+                width:100%;
+                margin-bottom:10px;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:10px;
+                height:30px;
+        }
+        .news .body .right .ms-channel-path span
+        {
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:14PX;
+        }
+        .news .body .right .ms-channel-path .ms-channel-path-index
+        {
+                cursor:pointer;
+                color:#000;
+                font-size:14PX;
+                text-decoration:none;
+                margin-bottom:0px;
+                margin-top:0px;
+        }
+        .news .body .right .ms-channel-path .ms-channel-path-link
+        {
+                cursor:pointer;
+                color:#000;
+                font-size:14PX;
+                text-decoration:none;
+                margin-bottom:0px;
+                margin-top:0px;
+        }
+        .news .body .right .big-title
+        {
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:22PX;
+                padding-left:0px;
+        }
+        .news .body .right .news-body
+        {
+                margin-right:0px;
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                width:100%;
+                box-sizing:border-box;
+                margin-bottom:0px;
+                padding-top:0px;
+                margin-top:0px;
+                margin-left:0px;
+        }
+
+}</style>
+ </body>
+</html>

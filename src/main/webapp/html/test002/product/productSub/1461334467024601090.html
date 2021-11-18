@@ -1,0 +1,647 @@
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title>CMS建站管理后台001</title> 
+  <meta http-equiv="content-type" content="text/html"> 
+  <meta HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+  <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"> 
+  <meta name="format-detection" content="telephone=no"> 
+  <meta name="app-mobile-web-app-capable" content="yes"> 
+  <meta name="app-mobile-web-app-status-bar-style" content="black-translucent"> 
+  <meta name="keywords" content="CMS"> 
+  <meta name="description" content="CMS"> 
+  <script type="text/javascript" src="http://127.0.0.1:8081/static/plugins/vue/2.6.9/vue.min.js"></script> 
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/minireset/0.0.2/minireset.min.css"> 
+  <link rel="stylesheet" href="https://cdn.mingsoft.net/iconfont/iconfont.css"> 
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/animate/4.1.0/animate.min.css"> 
+  <script src="http://127.0.0.1:8081/static/plugins/element-ui/2.12.0/index.js"></script> 
+  <link rel="stylesheet" href="http://127.0.0.1:8081/static/plugins/element-ui/2.12.0/index.css"> 
+  <link rel="stylesheet" href="http://127.0.0.1:8081/template/1/default/css/app.css"> 
+  <!--网络请求框架--> 
+  <script src="http://127.0.0.1:8081/static/plugins/axios/0.18.0/axios.min.js"></script> 
+  <script src="http://127.0.0.1:8081/static/plugins/qs/6.6.0/qs.min.js"></script> 
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.js"></script> 
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.http.js"></script> 
+  <script src="http://127.0.0.1:8081/static/plugins/ms/1.0.0/ms.util.js"></script> 
+  <script>
+        ms.base = "";
+    </script> 
+  <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div id="app" v-cloak> 
+<div class="ms-nav">
+ <div class="body">
+  <div class="logo">
+   <img title="" alt="" src="http://127.0.0.1:8081//upload/1/appLogo/1632215765115.jpg" class="logo-pic">
+   <img title="" alt="" src="https://www.mingsoft.net//template/1/ms/images/1596437934982.png" class="logo-desc">
+  </div>
+  <div @click="switchShow([&quot;1605172743000_96378&quot;]);" class="nav-h5">
+   <i class="iconfont icon-caidan nav-h5-icon"></i>
+   <div id="key_1605172743000_96378" class="nav-h5-body" style="display: none">
+    <a href="http://127.0.0.1:8081" class="nav-h5-item"> 首页 </a>
+    <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="nav-h5-item ">
+     Test-新闻主栏目
+    </a>
+    <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="nav-h5-item  sel">
+     Test-文章
+    </a>
+    <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="nav-h5-item ">
+     Test-关于
+    </a>
+   </div>
+  </div>
+  <div class="nav-item">
+   <a href="http://127.0.0.1:8081" class="item"> 首页 </a>
+
+   <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="item">
+    Test-新闻主栏目
+   </a>
+   <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="item sel">
+    Test-文章
+   </a>
+   <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="item">
+    Test-关于
+   </a>
+  </div>
+  <div class="nav-search">
+   <!--搜索-start-->
+   <form id="searchDataForm" action="http://127.0.0.1:8081/mcms/search.do" method="post" class="ms-search-input">
+    <div class="ms-search-input-div">
+     <!--输入框 - start -->
+     <input class="ms-input" name="content_title" placeholder="输入搜索关键字">
+     <!--输入框 -end -->
+    </div>
+    <div class="ms-search-button" onclick="document.getElementById('searchDataForm').submit();">
+     <i class="iconfont icon-fangdajing"></i>
+    </div>
+   </form>
+   <!--搜索-end-->
+  </div>
+ </div>
+</div>
+   <div class="content"> 
+    <div class="body">
+     <div class="left">
+      <span class="title"> Test-文章 </span>
+      <a href="http://127.0.0.1:8081/html/test002/product/productSub/index.html" class="sub-title-sel"> Test-文章子栏目1 </a>
+    </div>
+     <div class="right"> 
+      <div class="ms-channel-path"> 
+       <span class="ms-channel-path-label"> 当前位置： </span> 
+       <a href="/" class="ms-channel-path-index"> 首页 </a>  
+       <i class="iconfont icon-youjiantou"></i> 
+       <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="ms-channel-path-link"> Test-文章 </a>  
+       <i class="iconfont icon-youjiantou"></i> 
+       <a href="http://127.0.0.1:8081/html/test002/product/productSub/index.html" class="ms-channel-path-link"> Test-文章子栏目1 </a>  
+      </div> 
+      <div class="product"> 
+       <div class="pic"> 
+        <img title="" alt="" src="http://127.0.0.1:8081//upload/1/cms/content/1637244243965.jpg">
+        <div class="text"> 
+         <span class="big-title"> 湖南常德市委书记杨懿文落马 其妻长沙市公安副局长李湘江一并被查 </span> 
+         <span class="desc">  </span> 
+        </div> 
+       </div> 
+       <div class="content"> 
+        <div class="content-body">
+         <span> <p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><img class="content-picture" src="/upload/1/cms/content/editor/1637244260291.jpg"/></p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;"><span style="font-weight: bolder;">经济观察网 记者 李微敖</span>2021年11月18日，湖南省纪委监委宣布，常德市委书记杨懿文涉嫌严重违纪违法，目前正接受该省纪委监委纪律审查和监察调查。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">多位知情者告诉经济观察网记者，杨懿文是在2021年11月15日被湖南省纪委监委工作人员带走调查的，当日上午，他还在常德市参加了市委的会议。其妻湖南省长沙市公安局党委副书记、副局长李湘江，在同日下午亦被带走。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">在通报杨懿文落马消息后不久，湖南省纪委监委也公布，李湘江涉嫌严重违纪违法，经省纪委监委指定，目前正接受常德市纪委监委纪律审查和监察调查。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">1966年7月出生的杨懿文，是湖南岳阳汨罗人。1984年，时年18岁的他，考入长沙大学（今长沙学院）中文系新闻专业。1965年12月出生的湖南长沙浏阳人李湘江，同年考入长沙大学中文系新闻专业，两人为同学。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">1987年，两人大专毕业后，双双进入长沙市公安局工作，初期均为基层派出所的民警。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">1988年7月，在基层派出所锻炼一年后，杨懿文进入市局机关，任长沙市公安局政治部干部；两年后，调入长沙市委办公厅，先后任综合调研室干部、调研室副科级研究员、调研室正科级研究员。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">1995年6月，杨懿文升任共青团长沙市委副书记，直至2000年6月。期间，他在湖南湘西土家族苗族自治州龙山县挂职担任过县委副书记。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">2000年6月开始，挂职期满的杨懿文，转至招商及商务系统工作，先后任长沙市招商局副局长，长沙市外经贸委工委书记、副主任，长沙市外贸局局长、长沙市商务局局长等职。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">2007年10月，杨懿文调至地方，任长沙县县长，并随后兼任长沙经济技术开发区管委会主任——长沙经济技术开发区实际上是在长沙县境内，但属于副厅级单位，因此杨懿文此时已明确为副厅级干部。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">2009年，杨懿文出任长沙县委书记兼长沙经济技术开发区党工委书记，直至2016年。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">多位长沙政界人士对经济观察网记者表示，杨懿文在长沙县及长沙经济技术开发区任上颇有作为，并在招商引资方面有独到之处。</p><p class="one-p" style="margin-top: 0px; margin-bottom: 2em; padding: 0px; line-height: 2.2; overflow-wrap: break-word; word-wrap: break-word; font-family: &quot;Microsoft Yahei&quot;, Avenir, &quot;Segoe UI&quot;, &quot;Hiragino Sans GB&quot;, STHeiti, &quot;Microsoft Sans Serif&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 18px; white-space: normal;">在他任上，长沙县经济发展非常迅速，连续数年位居中国中西部县域经济发展第一名；在全国100强县排名中，无论是GDP总量，还是政府财政收入，都位居前10位。</p><p><br/></p> </span> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+<div class="ms-footer">
+ <div class="body">
+  <div class="top">
+   <div class="top-left">
+         <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/news/index.html" class="nav-item"> Test-新闻主栏目</a>
+      <div>
+       <a href="http://127.0.0.1:8081/html/test002/news/newsSub/index.html" class="item"> Test-新闻子栏目1 </a>
+      </div>
+    </div>
+    <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/product/index.html" class="nav-item"> Test-文章</a>
+      <div>
+       <a href="http://127.0.0.1:8081/html/test002/product/productSub/index.html" class="item"> Test-文章子栏目1 </a>
+      </div>
+    </div>
+    <div class="foot-nav">
+     <a href="http://127.0.0.1:8081/html/test002/about/index.html" class="nav-item"> Test-关于</a>
+    </div>
+   </div>
+   <div class="top-right">
+<!--    <div class="qr">-->
+<!--     <img title="" alt="" src="http://127.0.0.1:8081/template/1/default/images/sw.png" class="pic">-->
+<!--     <span class="text"> 商务微信 </span>-->
+<!--    </div>-->
+    <div class="qr">
+     <img title="" alt="" src="http://127.0.0.1:8081/template/1/default/images/gzh.png" class="pic">
+     <span class="text"> 公众号 </span>
+    </div>
+   </div>
+  </div>
+  <span class="copyright">版权所有 ©北京奕凡星辰科技有限公司2020-2021 保留一切权利。</span>
+ </div>
+</div>
+  </div>   
+  <script>
+var app = new Vue({
+    el: '#app',
+    watch:{
+    },
+    data: {
+    },
+    methods: {
+       switchShow:function(arr){
+       var that = this
+           arr.forEach(function(x){
+              let e = that.$el.querySelector("#key_"+x)
+               if(e){
+                   e.style.display=e.style.display=='none'?'flex':'none'
+               }
+           })
+       },
+    },
+    created(){
+    }
+})
+</script> 
+  <style>
+    body {
+        background-color:#fff;
+        box-sizing:border-box;
+        font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Segoe UI", "Helvetica Neue", "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", 微软雅黑, sans-serif;
+        moz-box-sizing:border-box;
+        webkit-box-sizing:border-box;
+    }
+
+    .content 
+    {
+            align-items:flex-start;
+            flex-direction:row;
+            display:flex;
+            padding-right:0px;
+            box-sizing:border-box;
+            justify-content:center;
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            width:100%;
+            margin-bottom:0px;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+    }
+    .content .body 
+    {
+            padding-bottom:20px;
+            flex-wrap:nowrap;
+            flex-direction:row;
+            display:flex;
+            padding-right:0px;
+            width:1200px;
+            box-sizing:border-box;
+            padding-top:20px;
+            padding-left:0px;
+    }
+    .content .body .left 
+    {
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            padding-right:0px;
+            width:100%;
+            box-sizing:border-box;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+            height:100%;
+    }
+    .content .body .left .title 
+    {
+            border-bottom-color:#C0C4CC;
+            color:#C0C4CC;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+            border-bottom-style:dashed;
+            padding-top:10px;
+            border-bottom-width:1px;
+            padding-left:10px;
+            margin-top:0px;
+            height:40px;
+    }
+    .content .body .left .sub-title-sel {
+     background-color: #F2F6FC;
+     color: #409EFF;
+     flex-direction: row;
+     word-wrap: break-word;
+     display: inline-block;
+     font-size: 16PX;
+     padding-top: 10px;
+     padding-left: 10px;
+     margin-top: 2px;
+     height: 40px;
+    }
+
+    .content .body .left .sub-title {
+     color: #5F5F5F;
+     flex-direction: row;
+     word-wrap: break-word;
+     display: inline-block;
+     font-size: 16PX;
+     padding-top: 10px;
+     padding-left: 10px;
+     margin-top: 0px;
+     height: 40px;
+    }
+    .content .body .right 
+    {
+            padding-bottom:0px;
+            flex-wrap:wrap;
+            flex-direction:column;
+            display:flex;
+            padding-right:0px;
+            width:1000px;
+            margin-bottom:0px;
+            box-sizing:border-box;
+            padding-top:0px;
+            position:relative;
+            padding-left:20px;
+            margin-top:0px;
+    }
+    .content .body .right .ms-channel-path 
+    {
+            margin-right:auto;
+            align-items:center;
+            flex-wrap:nowrap;
+            flex-direction:row;
+            display:flex;
+            width:100%;
+            margin-bottom:10px;
+            box-sizing:border-box;
+            padding-left:0px;
+            margin-top:10px;
+            height:30px;
+            margin-left:auto;
+    }
+    .content .body .right .ms-channel-path span 
+    {
+            color:#909399;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+    }
+    .content .body .right .ms-channel-path .ms-channel-path-index 
+    {
+            cursor:pointer;
+            color:#000;
+            font-size:16PX;
+            text-decoration:none;
+            margin-bottom:0px;
+            margin-top:0px;
+    }
+    .content .body .right .ms-channel-path >i 
+    {
+    }
+    .content .body .right .ms-channel-path .ms-channel-path-link 
+    {
+            cursor:pointer;
+            color:#000;
+            font-size:16PX;
+            text-decoration:none;
+            margin-bottom:0px;
+            margin-top:0px;
+    }
+    .content .body .right .product 
+    {
+            margin-right:0px;
+            padding-bottom:0px;
+            flex-direction:column;
+            display:flex;
+            padding-right:0px;
+            width:980px;
+            margin-bottom:0px;
+            box-sizing:border-box;
+            padding-top:0px;
+            padding-left:0px;
+            margin-top:0px;
+    }
+    .content .body .right .product .pic 
+    {
+            flex-wrap:nowrap;
+            flex-direction:row;
+            display:flex;
+            width:100%;
+            box-sizing:border-box;
+            padding-left:0px;
+            height:240px;
+    }
+    .content .body .right .product .pic img 
+    {
+            width:320px;
+            padding-left:0px;
+            height:206px;
+    }
+    .content .body .right .product .pic .text 
+    {
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            width:740px;
+            box-sizing:border-box;
+            padding-left:20px;
+            height:100%;
+    }
+    .content .body .right .product .pic .text .big-title 
+    {
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:22PX;
+            padding-left:0px;
+    }
+    .content .body .right .product .pic .text .desc 
+    {
+            color:#C8C8C8;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:16PX;
+            padding-top:0px;
+            padding-left:0px;
+    }
+    .content .body .right .product .content 
+    {
+            padding-bottom:10px;
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            width:100%;
+            box-sizing:border-box;
+            padding-top:10px;
+            padding-left:0px;
+    }
+    .content .body .right .product .content .label 
+    {
+            padding-bottom:0px;
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:18PX;
+            padding-top:0px;
+            padding-left:0px;
+    }
+    .content .body .right .product .content .content-body 
+    {
+            padding-bottom:0px;
+            flex-wrap:nowrap;
+            flex-direction:column;
+            display:flex;
+            width:100%;
+            box-sizing:border-box;
+            padding-top:0px;
+            padding-left:0px;
+    }
+    .content .body .right .product .content .content-body span 
+    {
+            flex-direction:row;
+            word-wrap:break-word;
+            display:inline-block;
+            font-size:14px;
+    }
+@media (max-width: 768px){
+        .content 
+        {
+                align-items:center;
+                flex-direction:row;
+                display:flex;
+                padding-right:0px;
+                box-sizing:border-box;
+                justify-content:center;
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                width:100%;
+                margin-bottom:0px;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:0px;
+        }
+        .content .body 
+        {
+                padding-bottom:20px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:90%;
+                box-sizing:border-box;
+                padding-top:20px;
+                padding-left:0px;
+        }
+        .content .body .left 
+        {
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:100%;
+                box-sizing:border-box;
+                padding-top:0px;
+                padding-left:0px;
+                height:100%;
+        }
+        .content .body .left .title 
+        {
+                border-bottom-color:#C0C4CC;
+                color:#C0C4CC;
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:16PX;
+                border-bottom-style:dashed;
+                padding-top:10px;
+                border-bottom-width:1px;
+                padding-left:10px;
+                margin-top:0px;
+                height:40px;
+        }
+        .content .body .left .sub-title-sel 
+        {
+                background-color:#F2F6FC;
+                color:#409EFF;
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:16PX;
+                padding-top:10px;
+                padding-left:10px;
+                margin-top:2px;
+                height:40px;
+        }
+        .content .body .right 
+        {
+                padding-bottom:0px;
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:100%;
+                margin-bottom:0px;
+                box-sizing:border-box;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:0px;
+        }
+        .content .body .right .ms-channel-path 
+        {
+                margin-right:auto;
+                align-items:center;
+                flex-wrap:nowrap;
+                flex-direction:row;
+                display:flex;
+                width:100%;
+                margin-bottom:10px;
+                box-sizing:border-box;
+                padding-left:0px;
+                margin-top:10px;
+                height:30px;
+                margin-left:auto;
+        }
+        .content .body .right .ms-channel-path span 
+        {
+                color:#909399;
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:16PX;
+        }
+        .content .body .right .ms-channel-path .ms-channel-path-index 
+        {
+                cursor:pointer;
+                color:#000;
+                font-size:16PX;
+                text-decoration:none;
+                margin-bottom:0px;
+                margin-top:0px;
+        }
+        .content .body .right .ms-channel-path .ms-channel-path-link 
+        {
+                cursor:pointer;
+                color:#000;
+                font-size:16PX;
+                text-decoration:none;
+                margin-bottom:0px;
+                margin-top:0px;
+        }
+        .content .body .right .product 
+        {
+                margin-right:0px;
+                padding-bottom:0px;
+                flex-direction:column;
+                display:flex;
+                padding-right:0px;
+                width:100%;
+                margin-bottom:0px;
+                box-sizing:border-box;
+                padding-top:0px;
+                padding-left:0px;
+                margin-top:0px;
+                height:610px;
+        }
+        .content .body .right .product .pic 
+        {
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                width:100%;
+                box-sizing:border-box;
+                padding-left:0px;
+                height:240px;
+        }
+        .content .body .right .product .pic img 
+        {
+                padding-bottom:0px;
+                width:100%;
+                padding-top:0px;
+                padding-left:0px;
+                height:400px;
+        }
+        .content .body .right .product .pic .text 
+        {
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                width:100%;
+                box-sizing:border-box;
+                padding-left:0px;
+                height:100%;
+        }
+        .content .body .right .product .pic .text .big-title 
+        {
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:22PX;
+                padding-left:0px;
+        }
+        .content .body .right .product .pic .text .desc 
+        {
+                color:#C8C8C8;
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:16PX;
+                padding-left:0px;
+        }
+        .content .body .right .product .content 
+        {
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                width:100%;
+                box-sizing:border-box;
+                padding-left:0px;
+                height:240px;
+        }
+        .content .body .right .product .content .label 
+        {
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:18PX;
+                padding-top:0px;
+                padding-left:0px;
+        }
+        .content .body .right .product .content .content-body 
+        {
+                flex-wrap:nowrap;
+                flex-direction:column;
+                display:flex;
+                width:100%;
+                box-sizing:border-box;
+                padding-top:20px;
+                padding-left:0px;
+                height:100%;
+        }
+        .content .body .right .product .content .content-body span 
+        {
+                flex-direction:row;
+                word-wrap:break-word;
+                display:inline-block;
+                font-size:14px;
+        }
+
+}</style>
+ </body>
+</html>
